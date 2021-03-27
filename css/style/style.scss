@@ -1,0 +1,14 @@
+@import "../partials/globals";
+
+main {
+    min-height: 40vh;
+
+    .pokemon {
+        display: inline-block;
+        margin: 0% 5%;
+    
+        img {
+            width: 15vw;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/style/style.css">
+</head>
+<body>
+    <header>
+        <img src="/images/greyPokemonBattleHackathonLogo.jpg" alt="The official pokemon logo in bold, yellow text with each letter having a blue outline and the words 'Battle Hackathon' in a glowing, purple neon colour below the pokemon logo.">
+    </header>
+    <main>
+        <article class="pokemon" onclick="pokemonSelection(`Turtwig`)">
+            <img src="/images/greyTurtwig.jpg" alt="A turtle-like Pokémon standing on all four legs that has a light green body. Its eyes, jaw and webbed feet are all yellow while its shell has a light brown colour with a dark brown marginal. Turtwig also has a leaf stem on its head which has the same colour as its shell with two dark green leaves attached to it on both sides on the stem.">
+            <a href="/pages/battle.html">Turtwig</a>
+        </article>
+        <article class="pokemon" onclick="pokemonSelection(`Charmander`)">
+            <img src="/images/greyCharmander.jpg" alt="A salamander-like Pokémon standing on two legs that has an orange body, blue eyes and a flame at the end of its tail, happily smiling with its mouth opened and white teeth showing. Charmander also has a beige-coloured belly with feet that has white, sharp nails.">
+            <a href="/pages/battle.html">Charmander</a>
+        </article>
+        <article class="pokemon" onclick="pokemonSelection(`Piplup`)">
+            <img src="/images/greyPiplup.jpg" alt="A penguin-like Pokémon standing on two legs that has a light blue body and yellow-coloured beak and feet. Piplup also has a dark blue head with its eyes being the same colour as its head and has two small, white circles on its belly.">
+            <a href="/pages/battle.html">Piplup</a>
+        </article>
+    </main>
+    <footer>
+        <p>Copyright &copy; 2021 Classic Pokemon Battle Hackathon</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src='/js/app.js'></script>
+</body>
+</html>

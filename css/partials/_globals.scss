@@ -1,0 +1,12 @@
+$homeLightColor: #E8EAE6;
+$homeDarkColor: #CDD0CB;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    background: $homeLightColor;
+}
