@@ -1,14 +1,67 @@
 @import "../partials/globals";
+@import "../partials/header";
+@import "../partials/footer";
+
+body {
+    font-family: $bodyFont;
+    text-align: center;
+    background: $homeLightColour;
+    max-width: 100vw;
+}
 
 main {
-    min-height: 40vh;
+    min-height: 70vh;
+    margin-top: 10vh;
+
+    h1 {
+        margin: 10vh 0vh;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 1.5rem;
+    }
 
     .pokemon {
+        position: relative;
         display: inline-block;
         margin: 0% 5%;
-    
+        opacity: 0.5;
+        text-decoration: none;
+        color: black;
+
+        h1 {
+            font-size: 1rem;
+            text-align: center;
+        }
+
         img {
-            width: 15vw;
+            position: relative;
+            width: 12vw;
+        }
+
+        .shadow {
+            position: absolute;
+            bottom: 17vh;
+            background: $homeDarkColour;
+            height: 5vh;
+            width: 100%;
+            border-radius: 100%;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        &:hover img {
+            animation: bouncingPokemon 3s ease-in-out infinite;
+        }
+
+        &:hover .shadow {
+            opacity: 1;
+            transition: all 0.3s ease-in-out;
+            animation: movingShadow 3s ease-in-out infinite;
+        }
+
+        &:hover {
+            opacity: 1;
+            transition: all 0.3s ease-in-out;
         }
     }
 }

@@ -1,0 +1,15 @@
+@import "../partials/globals";
+
+#homeFooter, #battleFooter {
+    font-family: $titleFont;
+    padding: 1% 0%;
+}
+
+#homeHeader {
+    background: $homeDarkColour;
+}
+
+#battleFooter {
+    background: $battleDarkColour;
+    color: white;
+}

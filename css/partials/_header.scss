@@ -1,0 +1,26 @@
+@import "../partials/globals";
+
+#homeHeader, #battleHeader {
+    display: grid;
+    place-items: center;
+
+    img {
+        width: 20vw;
+    }
+}
+
+#homeHeader {
+    row-gap: 20px;
+    text-align: center;
+    margin-top: 5vh;
+    background: $homeLightColour;    
+}
+
+#battleHeader {
+    grid-template-columns: repeat(3, 1fr);
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}

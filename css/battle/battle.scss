@@ -1,0 +1,61 @@
+@import "../partials/globals";
+@import "../partials/header";
+@import "../partials/footer";
+
+body {
+    font-family: $bodyFont;
+    text-align: center;
+    background: $battleLightColour;
+    max-width: 100vw;
+}
+
+#lightningBolts {
+    position: relative;
+
+    #lightningOne, #lightningTwo {
+        position: absolute;
+        top: -4vh;
+        height: 35vh;
+        opacity: 0;
+        animation: lightningBolt 3s linear 60s;
+    }
+
+    #lightningOne {
+        right: 0;
+        animation-delay: 1s;
+    }
+
+    #lightningTwo {
+        left: 0;
+        transform: scaleX(-1);
+        animation-delay: 6s;
+    }
+
+}
+
+#arena {
+    min-height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+
+    .players {
+
+        img {
+            width: 20vw;
+        }
+        
+        #attackButton {
+            margin-top: 5vh;
+            background: black;
+            padding: 2vh 0vh;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+        }
+
+        #phantump {
+            transform: scaleX(-1);
+        }
+    }
+}

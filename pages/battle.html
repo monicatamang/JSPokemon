@@ -5,23 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Battle</title>
+    <link rel="stylesheet" href="/css/battle/battle.css">
 </head>
 <body>
-    <header>
+    <div id="lightningBolts">
+        <img id="lightningOne" src="/images/lightning.jpg" alt="A thin, white lightning bolt glowing in a light purple colour that is in a vertical orientation.">
+        <img id="lightningTwo" src="/images/lightning.jpg" alt="A thin, white lightning bolt glowing in a light purple colour that is in a vertical orientation.">
+    </div>
+    <header id="battleHeader">
         <a href="/index.html">Back</a>
-        <!-- <img src="/images/greyPokemonBattleHackathonLogo.jpg" alt="The official pokemon logo in bold, yellow text with each letter having a blue outline and the words 'Battle Hackathon' in a glowing, purple neon colour below the pokemon logo."> -->
+        <img src="/images/blackPokemonBattleHackathonLogo.jpg" alt="The official pokemon logo in bold, yellow text with each letter having a blue outline and the words 'Battle Hackathon' in a glowing, purple neon colour below the pokemon logo.">
+        <div id="headerSpacer"></div>
     </header>
     <main id="arena">
-        <article id="pokemonOne">
-            <h1>One</h1>
-        </article>
-        <article>
+        <article class="players" id="userPokemon">
+            <div id="userPokemonImage"></div>
             <p id="attackButton" onclick="attackMechanism()">Attack</p>
         </article>
-        <article id="pokemonTwo">
-            <h1>Two</h1>
+        <div id="battleMessages"></div>
+        <article class="players" id="computerPokemon">
+            <img id="phantump" src="/images/blackPhantump.jpg" alt="A tree stump-like Pokémon which possesses a black, ghost-like body with pink eyes, two arms and one mouth. It has a light brown, tree stump-like head with two branches on each side of its head in the same light brown colour. Each branch has two small, dark green leaves at the end of the branch.">
         </article>
     </main>
+    <footer id="battleFooter">
+        <p>Copyright &copy; 2021 Classic Pokemon Battle Hackathon</p>
+    </footer>
     <script src='https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js'></script>
     <script src='/js/battle.js'></script>
 </body>

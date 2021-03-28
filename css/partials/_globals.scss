@@ -1,12 +1,37 @@
-$homeLightColor: #E8EAE6;
-$homeDarkColor: #CDD0CB;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand&display=swap');;
+
+$titleFont: 'Quicksand', sans-serif;
+$bodyFont: 'Press Start 2P', cursive;
+$homeLightColour: #E8EAE6;
+$homeDarkColour: #CDD0CB;
+$battleLightColour: #393E46;
+$battleDarkColour: #222831;
 
 * {
     margin: 0;
     padding: 0;
 }
 
-body {
-    text-align: center;
-    background: $homeLightColor;
+@keyframes bouncingPokemon {
+    0% { top: 0vh; }
+    50% { top: -5vh; }
+    100% { top: 0vh; }
+}
+
+@keyframes movingShadow {
+    0% { transform: scaleX(1); }
+    50% { transform: scaleX(0.2); }
+    100% { transform: scaleX(1); }
+}
+
+@keyframes lightningBolt {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    21% { opacity: 0; }
+    25% { opacity: 1; }
+    26% { opacity: 0; }
+    30% { opacity: 1; }
+    31% { opacity: 0; }
+    99% { opacity: 1; }
+    100% {  opacity: 0; }
 }
