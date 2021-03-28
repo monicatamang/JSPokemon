@@ -205,6 +205,8 @@
 }
 
 #battleHeader a {
+  position: relative;
+  z-index: 1;
   text-decoration: none;
   color: white;
 }
@@ -276,7 +278,7 @@
   padding: 1% 0%;
 }
 
-#homeHeader {
+#homeFooter {
   background: #CDD0CB;
 }
 
@@ -334,7 +336,7 @@ body {
 
 #arena .players #attackButton {
   margin-top: 5vh;
-  background: black;
+  background: #7078B3;
   padding: 2vh 0vh;
   border-radius: 10px;
   color: white;

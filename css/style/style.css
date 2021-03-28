@@ -205,6 +205,8 @@
 }
 
 #battleHeader a {
+  position: relative;
+  z-index: 1;
   text-decoration: none;
   color: white;
 }
@@ -276,7 +278,7 @@
   padding: 1% 0%;
 }
 
-#homeHeader {
+#homeFooter {
   background: #CDD0CB;
 }
 

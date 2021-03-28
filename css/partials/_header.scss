@@ -20,6 +20,8 @@
     grid-template-columns: repeat(3, 1fr);
 
     a {
+        position: relative;
+        z-index: 1;
         text-decoration: none;
         color: white;
     }
