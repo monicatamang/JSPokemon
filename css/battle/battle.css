@@ -1,11 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-}
-
 @-webkit-keyframes bouncingPokemon {
   0% {
     top: 0vh;
@@ -17,7 +11,6 @@
     top: 0vh;
   }
 }
-
 @keyframes bouncingPokemon {
   0% {
     top: 0vh;
@@ -125,61 +118,10 @@
   padding: 0;
 }
 
-@keyframes bouncingPokemon {
-  0% {
-    top: 0vh;
-  }
-  50% {
-    top: -5vh;
-  }
-  100% {
-    top: 0vh;
-  }
-}
-
-@keyframes movingShadow {
-  0% {
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-  }
-  50% {
-    -webkit-transform: scaleX(0.2);
-            transform: scaleX(0.2);
-  }
-  100% {
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-  }
-}
-
-@keyframes lightningBolt {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  21% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 1;
-  }
-  26% {
-    opacity: 0;
-  }
-  30% {
-    opacity: 1;
-  }
-  31% {
-    opacity: 0;
-  }
-  99% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+body {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  max-width: 100vw;
 }
 
 #homeHeader, #battleHeader {
@@ -195,7 +137,6 @@
 
 #homeHeader {
   row-gap: 20px;
-  text-align: center;
   background: #E8EAE6;
 }
 
@@ -206,18 +147,13 @@
 
 #battleHeader a {
   position: relative;
-  z-index: 1;
   text-decoration: none;
   color: white;
+  z-index: 1;
 }
 
 #battleHeader a:hover {
   color: rgba(255, 255, 255, 0.5);
-}
-
-* {
-  margin: 0;
-  padding: 0;
 }
 
 @keyframes bouncingPokemon {
@@ -277,27 +213,35 @@
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  max-width: 100vw;
+}
+
 #homeFooter, #battleFooter {
   font-family: "Quicksand", sans-serif;
   padding: 1% 0%;
 }
 
 #homeFooter {
-  background: #CDD0CB;
   margin-top: 10vh;
+  background: #CDD0CB;
 }
 
 #battleFooter {
+  margin-top: 10vh;
   background: #222831;
   color: white;
-  margin-top: 10vh;
 }
 
 body {
-  font-family: "Press Start 2P", cursive;
-  text-align: center;
   background: #393E46;
-  max-width: 100vw;
 }
 
 #lightningBolts {
@@ -306,8 +250,8 @@ body {
 
 #lightningBolts #lightningOne, #lightningBolts #lightningTwo {
   position: absolute;
-  top: -3vh;
   height: 30vh;
+  top: -3vh;
   opacity: 0;
   -webkit-animation: lightningBolt 3s linear 60s;
           animation: lightningBolt 3s linear 60s;
@@ -328,12 +272,12 @@ body {
 }
 
 #arena {
-  min-height: 80vh;
   display: -ms-grid;
   display: grid;
+  place-items: center;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
-  place-items: center;
+  min-height: 80vh;
 }
 
 #arena .players {
@@ -349,16 +293,16 @@ body {
 }
 
 #arena .players #attackButton {
-  margin-top: 5vh;
-  width: 100%;
   background: #7078B3;
-  padding: 2vh 0vh;
-  border-radius: 10px;
   color: white;
   text-transform: uppercase;
-  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 5vh;
+  width: 100%;
+  padding: 2vh 0vh;
   -webkit-box-shadow: 1px 1px 10px #222831;
           box-shadow: 1px 1px 10px #222831;
+  cursor: pointer;
 }
 
 #arena .players #attackButton:active {
@@ -374,12 +318,12 @@ body {
 
 #arena .players .healthBar {
   position: relative;
+  height: 30px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto auto;
       grid-template-columns: auto auto;
   margin-top: 2vh;
-  height: 30px;
   outline: 1px solid #7078B3;
 }
 
@@ -392,15 +336,11 @@ body {
   color: #7078B3;
 }
 
-#arena .players .healthBar .healthPercentage {
-  color: #7078B3;
-}
-
 #arena .players .healthBar .healthBarFill {
   position: absolute;
-  z-index: -1;
   height: 100%;
   background: #222831;
+  z-index: -1;
   width: 100%;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -412,7 +352,6 @@ body {
 
 #arena .players #computerHealthBar {
   width: 77%;
-  text-align: center;
 }
 
 #arena #computerPokemon {
@@ -420,14 +359,14 @@ body {
 }
 
 #arena #computerPokemon > p {
-  text-transform: uppercase;
   color: white;
+  text-transform: uppercase;
 }
 
 #arena #battleMessages h1 {
-  letter-spacing: 1px;
-  text-transform: uppercase;
   color: white;
+  text-transform: uppercase;
   font-size: 2rem;
+  letter-spacing: 1px;
 }
 /*# sourceMappingURL=battle.css.map */

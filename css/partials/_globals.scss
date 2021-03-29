@@ -8,11 +8,6 @@ $battleLightColour: #393E46;
 $battleDarkColour: #222831;
 $battleAccentColour: #7078B3;
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
 @keyframes bouncingPokemon {
     0% { top: 0vh; }
     50% { top: -5vh; }
@@ -35,4 +30,37 @@ $battleAccentColour: #7078B3;
     31% { opacity: 0; }
     99% { opacity: 1; }
     100% {  opacity: 0; }
+}
+
+@mixin displayGridCenter() {
+    display: grid;
+    place-items: center;
+}
+
+@mixin buttonStyle($backgroundColor) {
+    background: $backgroundColor;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+
+@mixin textStyle($textColor) {
+    color: $textColor;
+    text-transform: uppercase;
+}
+
+@mixin positionAndHeight($position, $height) {
+    position: $position;
+    height: $height;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $bodyFont;
+    text-align: center;
+    max-width: 100vw;
 }

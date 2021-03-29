@@ -1,21 +1,16 @@
-@import "../partials/globals";
 @import "../partials/header";
 @import "../partials/footer";
 
 body {
-    font-family: $bodyFont;
-    text-align: center;
     background: $battleLightColour;
-    max-width: 100vw;
 }
 
 #lightningBolts {
     position: relative;
 
     #lightningOne, #lightningTwo {
-        position: absolute;
+        @include positionAndHeight(absolute, 30vh);
         top: -3vh;
-        height: 30vh;
         opacity: 0;
         animation: lightningBolt 3s linear 60s;
     }
@@ -30,18 +25,15 @@ body {
         transform: scaleX(-1);
         animation-delay: 6s;
     }
-
 }
 
 #arena {
-    min-height: 80vh;
-    display: grid;
+    @include displayGridCenter();
     grid-template-columns: repeat(3, 1fr);
-    place-items: center;
+    min-height: 80vh;
 
     .players {
-        display: grid;
-        place-items: center;
+        @include displayGridCenter();
         row-gap: 5px;
         height: 60%;
 
@@ -50,15 +42,12 @@ body {
         }
         
         #attackButton {
+            @include buttonStyle($battleAccentColour);
             margin-top: 5vh;
             width: 100%;
-            background: $battleAccentColour;
             padding: 2vh 0vh;
-            border-radius: 10px;
-            color: white;
-            text-transform: uppercase;
-            cursor: pointer;
             box-shadow: 1px 1px 10px $battleDarkColour;
+            cursor: pointer;
 
             &:active {
                 box-shadow: none;
@@ -71,30 +60,23 @@ body {
         }
 
         .healthBar {
-            position: relative;
+            @include positionAndHeight(relative, 30px);
             display: grid;
             grid-template-columns: auto auto;
             margin-top: 2vh;
-            height: 30px;
             outline: 1px solid $battleAccentColour;
 
             .hpLabel, .healthPercentage {
-                display: grid;
-                place-items: center;
+                @include displayGridCenter();
                 width: 100%;
                 height: 100%;
                 color: $battleAccentColour;
             }
-
-            .healthPercentage {
-                color: $battleAccentColour;
-            }
     
             .healthBarFill {
-                position: absolute;
-                z-index: -1;
-                height: 100%;
+                @include positionAndHeight(absolute, 100%);
                 background: $battleDarkColour;
+                z-index: -1;
 
                 width: 100%;
                 transition: all 0.3s ease-in-out;
@@ -107,7 +89,6 @@ body {
 
         #computerHealthBar {
             width: 77%;
-            text-align: center;
         }
     }
 
@@ -115,18 +96,16 @@ body {
         row-gap: 30px;
 
         >p {
-            text-transform: uppercase;
-            color: white;
+            @include textStyle(white);
         }
     }
 
     #battleMessages {
 
         h1 {
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: white;
+            @include textStyle(white);
             font-size: 2rem;
+            letter-spacing: 1px;
         }
     }
 }

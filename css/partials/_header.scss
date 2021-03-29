@@ -1,8 +1,7 @@
 @import "../partials/globals";
 
 #homeHeader, #battleHeader {
-    display: grid;
-    place-items: center;
+    @include displayGridCenter();
     margin-top: 5vh;
 
     img {
@@ -12,7 +11,6 @@
 
 #homeHeader {
     row-gap: 20px;
-    text-align: center;
     background: $homeLightColour;    
 }
 
@@ -21,9 +19,9 @@
 
     a {
         position: relative;
-        z-index: 1;
         text-decoration: none;
         color: white;
+        z-index: 1;
 
         &:hover {
             color: rgba(255, 255, 255, 0.5);

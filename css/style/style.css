@@ -1,11 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-}
-
 @-webkit-keyframes bouncingPokemon {
   0% {
     top: 0vh;
@@ -17,7 +11,6 @@
     top: 0vh;
   }
 }
-
 @keyframes bouncingPokemon {
   0% {
     top: 0vh;
@@ -125,61 +118,10 @@
   padding: 0;
 }
 
-@keyframes bouncingPokemon {
-  0% {
-    top: 0vh;
-  }
-  50% {
-    top: -5vh;
-  }
-  100% {
-    top: 0vh;
-  }
-}
-
-@keyframes movingShadow {
-  0% {
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-  }
-  50% {
-    -webkit-transform: scaleX(0.2);
-            transform: scaleX(0.2);
-  }
-  100% {
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-  }
-}
-
-@keyframes lightningBolt {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  21% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 1;
-  }
-  26% {
-    opacity: 0;
-  }
-  30% {
-    opacity: 1;
-  }
-  31% {
-    opacity: 0;
-  }
-  99% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+body {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  max-width: 100vw;
 }
 
 #homeHeader, #battleHeader {
@@ -195,7 +137,6 @@
 
 #homeHeader {
   row-gap: 20px;
-  text-align: center;
   background: #E8EAE6;
 }
 
@@ -206,18 +147,13 @@
 
 #battleHeader a {
   position: relative;
-  z-index: 1;
   text-decoration: none;
   color: white;
+  z-index: 1;
 }
 
 #battleHeader a:hover {
   color: rgba(255, 255, 255, 0.5);
-}
-
-* {
-  margin: 0;
-  padding: 0;
 }
 
 @keyframes bouncingPokemon {
@@ -277,27 +213,35 @@
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  max-width: 100vw;
+}
+
 #homeFooter, #battleFooter {
   font-family: "Quicksand", sans-serif;
   padding: 1% 0%;
 }
 
 #homeFooter {
-  background: #CDD0CB;
   margin-top: 10vh;
+  background: #CDD0CB;
 }
 
 #battleFooter {
+  margin-top: 10vh;
   background: #222831;
   color: white;
-  margin-top: 10vh;
 }
 
 body {
-  font-family: "Press Start 2P", cursive;
-  text-align: center;
   background: #E8EAE6;
-  max-width: 100vw;
 }
 
 main {
@@ -316,14 +260,13 @@ main .pokemon {
   position: relative;
   display: inline-block;
   margin: 0% 5%;
-  opacity: 0.5;
   text-decoration: none;
   color: black;
+  opacity: 0.5;
 }
 
 main .pokemon h1 {
   font-size: 1rem;
-  text-align: center;
 }
 
 main .pokemon img {
@@ -333,13 +276,13 @@ main .pokemon img {
 
 main .pokemon .shadow {
   position: absolute;
-  bottom: 17vh;
-  background: #CDD0CB;
   height: 5vh;
+  bottom: 17vh;
   width: 100%;
+  background: #CDD0CB;
   border-radius: 100%;
-  z-index: -1;
   opacity: 0;
+  z-index: -1;
 }
 
 main .pokemon:hover img {
@@ -367,16 +310,15 @@ main .pokemon:hover {
 
 #resumeGame a {
   background: #bfc2bd;
-  padding: 1%;
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 10px;
   color: white;
+  text-transform: uppercase;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 1%;
 }
 
 #resumeGame a:hover {
-  background: #7078B3;
   color: white;
+  background: #7078B3;
 }
 /*# sourceMappingURL=style.css.map */
