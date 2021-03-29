@@ -1,10 +1,10 @@
 // Getting the values of all user cookies based on the user's pokemon selection, max health and current health
-var userPokemonSelection = Cookies.get(`selection`);
+var userPokemonSelection = Cookies.get(`userPokemonSelection`);
 var userMaxHealth = Cookies.get(`userMaxHealth`);
 var userCurrentHealth = Cookies.get(`userCurrentHealth`);
 
-// Getting the values of all user cookies based on the computer's pokemon selection, max health and current health
-var computerPokemonSelection = Cookies.get(`computerPokemon`);
+// Getting the values of all computer cookies based on the computer's pokemon selection, max health and current health
+var computerPokemonSelection = Cookies.get(`computerPokemonSelection`);
 var computerMaxHealth = Cookies.get(`computerMaxHealth`);
 var computerCurrentHealth = Cookies.get(`computerCurrentHealth`);
 
@@ -26,14 +26,14 @@ computerPokemonName.append(computerPokemonSelection);
 computerPokemonName.style.color = `white`;
 computerPokemonName.style.textTransform = `uppercase`;
 
-// Creating a new image tag, styling the images, appending the image tag to the 'userPokemon'
+// Creating a new image tag, styling the images, appending the images into a div container called 'userPokemonImage'
 pokemonImage = document.createElement(`img`);
 pokemonImage.style.width = `100%`;
 pokemonImage.style.transform = `scaleX(-1)`;
 document.getElementById(`userPokemonImage`).append(pokemonImage);
 document.getElementById(`userPokemonImage`).style.width = `15vw`;
 
-// Creating a conditional that prints the image of each pokemon selection to the DOM
+// Creating a conditional that prints the image of the pokemon based on the user's selection to the DOM
 if (userPokemonSelection === `Turtwig`) {
     pokemonImage.setAttribute(`src`, `/images/blackTurtwig.jpg`);
 } else if (userPokemonSelection === `Charmander`) {
@@ -77,7 +77,7 @@ function computerHpPercentage() {
 // Creating a new variable and assigning it a boolean value which states that the game is not over
 var gameOver = false;
 
-// Creating a function that will take hard coded values: the user damage and computer damage value
+// Creating a function that will the user damage and computer damage values as hard coded numbers
 // When the user clicks on the "attack" button, the following events occur:
 function attackEnemy(userDamage, computerDamage) {
     // #1 - Setting the pokemon battle to be not over
@@ -108,7 +108,7 @@ function attackEnemy(userDamage, computerDamage) {
         // #4 - The computer attacks the user
         // Checking to see if the user is still "alive" and has an HP above 0 and if it is, substract 100 from its HP
         // Updating the user's HP cookie
-        // Calling the function to calculate the new computer's HP percentage and printing it to the DOM
+        // Calling the function to calculate the new user's HP percentage and printing it to the DOM
         if(userCurrentHealth > 0) {
             userCurrentHealth -= computerDamage;
             Cookies.set(`userCurrentHealth`, userCurrentHealth);
@@ -130,7 +130,7 @@ function attackEnemy(userDamage, computerDamage) {
     }
 }
 
-// Calling the functions to print the intiial user HP and computer HP to the DOM
+// Calling the functions to print the intiial user's HP and computer's HP to the DOM right when the user enters the battle page
 userHpPercentage();
 computerHpPercentage();
 
@@ -140,7 +140,7 @@ computerHpPercentage();
 // The reason why #2 - #5 are all "if" statements and not "if, else if, else" blocks was 
 // because we wanted to be able to check all conditions i.e., whether the computer or user 
 // was "dead" or had enough HP to still "do damage" (as stated in the assignment)
-// If the player is "alive", keep "doing damage" to the other player.
+// If the player is "alive", keep "doing damage" to its opponent.
 // If the player is "dead", end the game because the winner has been declared and the player already "died".
 
 // --- THE ISSUE ---
@@ -154,13 +154,13 @@ computerHpPercentage();
 // --- THE REASON ---
 // The reason that happened was because let's say the user clicks "attack" multiple times where the computer's HP reached 200/1000.
 // When the computer's HP was 200, it went through the "if" statement: if(computerCurrentHealth > 0), subtracted 200 from it's HP
-// and it stop there since the statement was true but it didn't check whether the computer's HP was 0 
-// or in other words, it wasn't go to the "else if" block but the computer's HP was already at 0/1000 while the user's HP was at 500/1000.
+// and then stopped there since the statement was true but it didn't check whether the computer's HP was 0 
+// or in other words, it wasn't going to the "else if" block but the computer's HP was already at 0/1000 while the user's HP was at 500/1000.
 // So when I clicked on the "attack" button again, the computer's HP was still 0/1000 but the user HP was at 400/1000 and the winner message printed
-// or in other words, it went through the "if else" block and checked whether it was actually
+// or in other words, at that time, it went through the "if else" block and checked whether it was actually
 // less than or equal to 0 and proceeded with executing the following statements
 
-// --- THE SOLUTION/RESULT ---
+// --- THE RESULT ---
 // Now that I've created each condition in an "if" block, when the user clicks "attack" all conditions will be checked one at a time from top to bottom
 // and as soon as the user or computer has "died", the user's or computer's HP does not decrease further and the 
 // winner message is printed to the DOM right when either the user's or computer's HP is equal to 0
