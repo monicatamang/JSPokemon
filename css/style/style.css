@@ -290,6 +290,7 @@
 #battleFooter {
   background: #222831;
   color: white;
+  margin-top: 10vh;
 }
 
 body {
@@ -365,7 +366,7 @@ main .pokemon:hover {
 }
 
 #resumeGame a {
-  background: #CDD0CB;
+  background: #bfc2bd;
   padding: 1%;
   text-align: center;
   text-transform: uppercase;
@@ -375,7 +376,7 @@ main .pokemon:hover {
 }
 
 #resumeGame a:hover {
-  background: white;
-  color: #CDD0CB;
+  background: #7078B3;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */

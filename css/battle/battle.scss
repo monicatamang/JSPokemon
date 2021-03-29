@@ -15,7 +15,7 @@ body {
     #lightningOne, #lightningTwo {
         position: absolute;
         top: -3vh;
-        height: 25vh;
+        height: 30vh;
         opacity: 0;
         animation: lightningBolt 3s linear 60s;
     }
@@ -43,6 +43,7 @@ body {
         display: grid;
         place-items: center;
         row-gap: 5px;
+        height: 60%;
 
         img {
             width: 20vw;
@@ -71,19 +72,27 @@ body {
 
         .healthBar {
             position: relative;
+            display: grid;
+            grid-template-columns: auto auto;
             margin-top: 2vh;
             height: 30px;
             outline: 1px solid $battleAccentColour;
 
-            p {
-                position: absolute;
-                top: 50%;
+            .hpLabel, .healthPercentage {
+                display: grid;
+                place-items: center;
                 width: 100%;
                 height: 100%;
                 color: $battleAccentColour;
             }
+
+            .healthPercentage {
+                color: $battleAccentColour;
+            }
     
             .healthBarFill {
+                position: absolute;
+                z-index: -1;
                 height: 100%;
                 background: $battleDarkColour;
 
@@ -102,36 +111,22 @@ body {
         }
     }
 
-    // #userPokemon {
-
-    //     #userHealthBar {
-    //         position: relative;
-    //         margin-top: 2vh;
-    //         width: 100%;
-    //         height: 30px;
-    //         outline: 1px solid $battleAccentColour;
-
-    //         p {
-    //             position: absolute;
-    //             color: $battleAccentColour;
-    //         }
-    
-    //         #userHealthBarFill {
-    //             height: 100%;
-    //             background: $battleDarkColour;
-
-    //             width: 100%;
-    //             transition: all 0.3s ease-in-out;
-    //         }
-    //     }
-    // }
-
     #computerPokemon {
+        row-gap: 30px;
 
-        p {
-            margin-bottom: 5vh;
+        >p {
             text-transform: uppercase;
             color: white;
+        }
+    }
+
+    #battleMessages {
+
+        h1 {
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: white;
+            font-size: 2rem;
         }
     }
 }

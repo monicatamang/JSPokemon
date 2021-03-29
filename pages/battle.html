@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Battle</title>
+    <title>Pokemon | Battle</title>
+    <link rel="shortcut icon" type="image/png" href="/images/pokeball.png">
     <link rel="stylesheet" href="/css/battle/battle.css">
 </head>
 <body>
@@ -23,16 +24,18 @@
             <div id="userPokemonImage"></div>
             <p id="attackButton" onclick="attackEnemy(200, 100)">Attack</p>
             <div class="healthBar" id="userHealthBar">
-                <p id="userHealthPercentage"></p>
+                <p class="hpLabel">HP</p>
+                <p class="healthPercentage" id="userHealthPercentage"></p>
                 <div class="healthBarFill" id="userHealthBarFill"></div>
             </div>
         </article>
         <div id="battleMessages"></div>
         <article class="players" id="computerPokemon">
-            <p>Phantump</p>
+            <p id="computerPokemonName"></p>
             <img id="phantump" src="/images/blackPhantump.jpg" alt="A tree stump-like Pokémon which possesses a black, ghost-like body with pink eyes, two arms and one mouth. It has a light brown, tree stump-like head with two branches on each side of its head in the same light brown colour. Each branch has two small, dark green leaves at the end of the branch.">
             <div class="healthBar" id="computerHealthBar">
-                <p id="computerPercentage"></p>
+                <p class="hpLabel">HP</p>
+                <p class="healthPercentage" id="computerHealthPercentage"></p>
                 <div class="healthBarFill" id="computerHealthBarFill"></div>
             </div>
         </article>
