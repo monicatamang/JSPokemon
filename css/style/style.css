@@ -186,6 +186,7 @@
   display: -ms-grid;
   display: grid;
   place-items: center;
+  margin-top: 5vh;
 }
 
 #homeHeader img, #battleHeader img {
@@ -195,7 +196,6 @@
 #homeHeader {
   row-gap: 20px;
   text-align: center;
-  margin-top: 5vh;
   background: #E8EAE6;
 }
 
@@ -209,6 +209,10 @@
   z-index: 1;
   text-decoration: none;
   color: white;
+}
+
+#battleHeader a:hover {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 * {
@@ -280,6 +284,7 @@
 
 #homeFooter {
   background: #CDD0CB;
+  margin-top: 10vh;
 }
 
 #battleFooter {
@@ -295,7 +300,7 @@ body {
 }
 
 main {
-  min-height: 70vh;
+  min-height: 50vh;
   margin-top: 10vh;
 }
 
@@ -353,5 +358,24 @@ main .pokemon:hover {
   opacity: 1;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+#resumeGame {
+  margin-bottom: 5vh;
+}
+
+#resumeGame a {
+  background: #CDD0CB;
+  padding: 1%;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 10px;
+  color: white;
+}
+
+#resumeGame a:hover {
+  background: white;
+  color: #CDD0CB;
 }
 /*# sourceMappingURL=style.css.map */

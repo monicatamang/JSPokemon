@@ -186,6 +186,7 @@
   display: -ms-grid;
   display: grid;
   place-items: center;
+  margin-top: 5vh;
 }
 
 #homeHeader img, #battleHeader img {
@@ -195,7 +196,6 @@
 #homeHeader {
   row-gap: 20px;
   text-align: center;
-  margin-top: 5vh;
   background: #E8EAE6;
 }
 
@@ -209,6 +209,10 @@
   z-index: 1;
   text-decoration: none;
   color: white;
+}
+
+#battleHeader a:hover {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 * {
@@ -280,6 +284,7 @@
 
 #homeFooter {
   background: #CDD0CB;
+  margin-top: 10vh;
 }
 
 #battleFooter {
@@ -300,8 +305,8 @@ body {
 
 #lightningBolts #lightningOne, #lightningBolts #lightningTwo {
   position: absolute;
-  top: -4vh;
-  height: 35vh;
+  top: -3vh;
+  height: 25vh;
   opacity: 0;
   -webkit-animation: lightningBolt 3s linear 60s;
           animation: lightningBolt 3s linear 60s;
@@ -330,21 +335,76 @@ body {
   place-items: center;
 }
 
+#arena .players {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  row-gap: 5px;
+}
+
 #arena .players img {
   width: 20vw;
 }
 
 #arena .players #attackButton {
   margin-top: 5vh;
+  width: 100%;
   background: #7078B3;
   padding: 2vh 0vh;
   border-radius: 10px;
   color: white;
+  text-transform: uppercase;
   cursor: pointer;
+  -webkit-box-shadow: 1px 1px 10px #222831;
+          box-shadow: 1px 1px 10px #222831;
+}
+
+#arena .players #attackButton:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 #arena .players #phantump {
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
+  width: 20vw;
+}
+
+#arena .players .healthBar {
+  position: relative;
+  margin-top: 2vh;
+  height: 30px;
+  outline: 1px solid #7078B3;
+}
+
+#arena .players .healthBar p {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  color: #7078B3;
+}
+
+#arena .players .healthBar .healthBarFill {
+  height: 100%;
+  background: #222831;
+  width: 100%;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#arena .players #userHealthBar {
+  width: 100%;
+}
+
+#arena .players #computerHealthBar {
+  width: 77%;
+  text-align: center;
+}
+
+#arena #computerPokemon p {
+  margin-bottom: 5vh;
+  text-transform: uppercase;
+  color: white;
 }
 /*# sourceMappingURL=battle.css.map */

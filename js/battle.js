@@ -6,6 +6,13 @@ var computerPokemonSelection = Cookies.get(`computerPokemon`)
 var userMaxHealth = Cookies.get(`userMaxHealth`);
 var computerMaxHealth = Cookies.get(`computerMaxHealth`);
 
+// Printing the name of the user's pokemon to the DOM
+var userPokemonName = document.getElementById(`userPokemonName`);
+userPokemonName.append(userPokemonSelection);
+userPokemonName.style.color = `white`;
+userPokemonName.style.textTransform = `uppercase`;
+userPokemonName.style.marginBottom = `5vh`;
+
 // Creating a new image tag, styling the images, appending the image tag to the 'userPokemon'
 pokemonImage = document.createElement(`img`);
 pokemonImage.style.width = `100%`;
@@ -24,11 +31,15 @@ if (userPokemonSelection === `Turtwig`) {
 
 // Getting the user's current health cookies and printing it to the DOM, styling the user's health points, styling the printed health points
 var userCurrentHealth = Cookies.get(`userCurrentHealth`);
-var userCurrentHP = document.createElement(`p`);
-userCurrentHP.innerText = `${userCurrentHealth}/${userMaxHealth}`;
-userCurrentHP.style.color = `#222831`;
-userCurrentHP.style.marginTop = `5vh`;
-document.getElementById(`userPokemon`).append(userCurrentHP);
+// var userCurrentHP = document.createElement(`p`);
+// userCurrentHP.innerText = `${userCurrentHealth}/${userMaxHealth}`;
+
+var userCurrentHP = document.getElementById(`userHealthBarFill`);
+// userCurrentHP.style.width = `100%`;
+
+// userCurrentHP.style.color = `#222831`;
+// userCurrentHP.style.marginTop = `5vh`;
+// document.getElementById(`userPokemon`).append(userCurrentHP);
 
 // Getting the computer's current health cookies and printing it to the DOM, styling the user's health points
 var computerCurrentHealth = Cookies.get(`computerCurrentHealth`);
@@ -74,7 +85,10 @@ function attackEnemy(userDamage, computerDamage) {
         if(userCurrentHealth > 0) {
             userCurrentHealth -= computerDamage;
             Cookies.set(`userCurrentHealth`, userCurrentHealth);
-            userCurrentHP.innerText = `${userCurrentHealth}/${userMaxHealth}`;
+            // userCurrentHP.innerText = `${userCurrentHealth}/${userMaxHealth}`;
+            var userPercentage = (userCurrentHealth / userMaxHealth) * 100;
+            userCurrentHP.style.width = `${userPercentage}%`;
+            document.getElementById(`userHealthPercentage`).innerText = userPercentage;
         }
 
         // #5 - Checking to see if the user "died" and has an HP of 0 or below and if it is, then set the user's HP to 0
