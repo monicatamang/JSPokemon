@@ -310,12 +310,6 @@ body {
           box-shadow: none;
 }
 
-#arena .players #phantump {
-  -webkit-transform: scaleX(-1);
-          transform: scaleX(-1);
-  width: 20vw;
-}
-
 #arena .players .healthBar {
   position: relative;
   height: 30px;

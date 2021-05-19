@@ -33,6 +33,38 @@ pokemonImage.style.transform = `scaleX(-1)`;
 document.getElementById(`userPokemonImage`).append(pokemonImage);
 document.getElementById(`userPokemonImage`).style.width = `15vw`;
 
+computerImage = document.createElement(`img`);
+computerImage.style.width = `100%`;
+computerImage.style.transform = `scaleX(-1)`;
+document.getElementById(`computerPokemonImage`).append(computerImage);
+document.getElementById(`computerPokemonImage`).style.width = `15vw`;
+
+let computerPlayerOptions = [
+
+    {
+        name: `Phantump`,
+        image: `/images/blackPhantump.jpg`
+    },
+
+    {
+        name: `Pancham`,
+        image: `/images/blackPancham.jpg`
+    },
+
+    {
+        name: `Umbreon`,
+        image: `/images/blackUmbreon.jpg`
+    }
+]
+
+let randomNum = Math.floor(Math.random() * 3);
+
+for(let i = 0; i < computerPlayerOptions.length; i++) {
+    computerImage.setAttribute(`src`, computerPlayerOptions[randomNum].image);
+    Cookies.set(`computerPokemonSelection`, computerPlayerOptions[randomNum].name);
+    document.getElementById(`computerPokemonName`).innerText = computerPlayerOptions[randomNum].name;
+}
+
 // Creating a conditional that prints the image of the pokemon based on the user's selection to the DOM
 if (userPokemonSelection === `Turtwig`) {
     pokemonImage.setAttribute(`src`, `/images/blackTurtwig.jpg`);
@@ -42,12 +74,12 @@ if (userPokemonSelection === `Turtwig`) {
     pokemonImage.setAttribute(`src`, `/images/blackPiplup.jpg`);
 }
 
-// Creating a function that calculates the percentage of the user's HP and uses that percentage to manipulate the width of the user's health bar, printing the percentage to the DOM
-// Creating a conditional that will change the colour of the user's health bar to yellow if the user's HP is equal to or less than 50% and red if the user's HP is equal to or less than 30%
+var gameOver = false;
+
 function userHpPercentage() {
-    var userPercentage = (userCurrentHealth / userMaxHealth) * 100;
+    var userPercentage = Math.floor((userCurrentHealth / userMaxHealth) * 100);
     userCurrentHP.style.width = `${userPercentage}%`;
-    document.getElementById(`userHealthPercentage`).innerText = userPercentage + `%`;
+    document.getElementById(`userHealthPercentage`).innerText = `${userPercentage}%`;
     if(userPercentage <= 50) {
         userCurrentHP.style.background = `#EEE8A9`;
     }
@@ -57,12 +89,10 @@ function userHpPercentage() {
     }
 }
 
-// Creating a function that calculates the percentage of the computer's HP and uses that percentage to manipulate the width of the computer's health bar, printing the percentage to the DOM
-// Creating a conditional that will change the colour of the computer's health bar to yellow if the computer's HP is equal to or less than 50% and red if the computer's HP is equal to or less than 30%
 function computerHpPercentage() {
-    var computerPercentage = (computerCurrentHealth / computerMaxHealth) * 100;
+    var computerPercentage = Math.floor((computerCurrentHealth / computerMaxHealth) * 100);
     computerCurrentHP.style.width = `${computerPercentage}%`;
-    document.getElementById(`computerHealthPercentage`).innerText = computerPercentage + `%`;
+    document.getElementById(`computerHealthPercentage`).innerText = `${computerPercentage}%`;
     if(computerPercentage <= 50) {
         computerCurrentHP.style.background = `#EEE8A9`;
     }
@@ -72,63 +102,56 @@ function computerHpPercentage() {
     }
 }
 
-// ------------------------------ Note: Shawn helped me with how to end the game ------------------------------
+function checkUserHealth() {
 
-// Creating a new variable and assigning it a boolean value which states that the game is not over
-var gameOver = false;
+    let userDamage = Math.floor(Math.random() * 100);
 
-// Creating a function that will the user damage and computer damage values as hard coded numbers
-// When the user clicks on the "attack" button, the following events occur:
-function attackEnemy(userDamage, computerDamage) {
-    // #1 - Setting the pokemon battle to be not over
-    if(gameOver === false) {
-        // #2 - The user attacks the computer
-        // Checking to see if the computer is still "alive" and has an HP above 0 and if it is, substract 200 from its HP
-        // Updating the computer's HP cookie
-        // Calling the function to calculate the new computer's HP percentage and printing it to the DOM
-        if(computerCurrentHealth > 0) {
-            computerCurrentHealth -= userDamage;
-            Cookies.set(`computerCurrentHealth`, computerCurrentHealth);
-            computerHpPercentage();
-        }
+    if(computerCurrentHealth > 0) {
+        computerCurrentHealth -= userDamage;
+        Cookies.set(`computerCurrentHealth`, computerCurrentHealth);
+        computerHpPercentage();
+    }
 
-        // #3 - Checking to see if the computer "died" and has an HP of 0 or below and if it is, then set the computer's HP to 0
-        // Updating the computer's HP cookie
-        // Calling the function to calculate the new computer's HP percentage and printing it to the DOM
-        // Printing that the user's pokemon has won and setting the game to be over
-        if(computerCurrentHealth <= 0) {
-            computerCurrentHealth = 0;
-            Cookies.set(`computerCurrentHealth`, computerCurrentHealth);
-            computerHpPercentage();
-            var winnerMessage = `<h1>${userPokemonSelection} Wins</h1>`;
-            document.getElementById(`battleMessages`).innerHTML = winnerMessage;
-            gameOver = true;
-        }
-
-        // #4 - The computer attacks the user
-        // Checking to see if the user is still "alive" and has an HP above 0 and if it is, substract 100 from its HP
-        // Updating the user's HP cookie
-        // Calling the function to calculate the new user's HP percentage and printing it to the DOM
-        if(userCurrentHealth > 0) {
-            userCurrentHealth -= computerDamage;
-            Cookies.set(`userCurrentHealth`, userCurrentHealth);
-            userHpPercentage();
-        }
-
-        // #5 - Checking to see if the user "died" and has an HP of 0 or below and if it is, then set the user's HP to 0
-        // Updating the user's HP cookie
-        // Calling the function to calculate the new user's HP percentage and printing it to the DOM
-        // Printing that the computer's pokemon has won and setting the game to be over
-        if(userCurrentHealth <= 0) {
-            userCurrentHealth = 0;
-            Cookies.set(`userCurrentHealth`, userCurrentHealth);
-            userHpPercentage();
-            var winnerMessage = `<h1>${computerPokemonSelection} Wins</h1>`;
-            document.getElementById(`battleMessages`).innerHTML = winnerMessage;
-            gameOver = true;
-        }
+    if(computerCurrentHealth <= 0) {
+        computerCurrentHealth = 0;
+        Cookies.set(`computerCurrentHealth`, computerCurrentHealth);
+        computerHpPercentage();
+        var winnerMessage = `<h1>${userPokemonSelection} Wins</h1>`;
+        document.getElementById(`battleMessages`).innerHTML = winnerMessage;
+        gameOver = true;
     }
 }
+
+function checkComputerHealth() {
+
+    let computerDamage = Math.floor(Math.random() * 100);
+
+    if(userCurrentHealth > 0) {
+        userCurrentHealth -= computerDamage;
+        Cookies.set(`userCurrentHealth`, userCurrentHealth);
+        userHpPercentage();
+    }
+
+    if(userCurrentHealth <= 0) {
+        userCurrentHealth = 0;
+        Cookies.set(`userCurrentHealth`, userCurrentHealth);
+        userHpPercentage();
+        var winnerMessage = `<h1>${computerPokemonSelection} Wins</h1>`;
+        document.getElementById(`battleMessages`).innerHTML = winnerMessage;
+        gameOver = true;
+    }
+}
+
+function attackEnemy() {
+
+    if(gameOver === false) {
+        checkUserHealth();
+        checkComputerHealth();
+    }
+}
+
+let userAttackButton = document.getElementById(`attackButton`);
+userAttackButton.addEventListener(`click`, attackEnemy);
 
 // Calling the functions to print the intiial user's HP and computer's HP to the DOM right when the user enters the battle page
 userHpPercentage();

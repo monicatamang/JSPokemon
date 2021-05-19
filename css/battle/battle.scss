@@ -54,10 +54,10 @@ body {
             }
         }
 
-        #phantump {
-            transform: scaleX(-1);
-            width: 20vw;
-        }
+        // #phantump {
+        //     transform: scaleX(-1);
+        //     width: 20vw;
+        // }
 
         .healthBar {
             @include positionAndHeight(relative, 30px);
