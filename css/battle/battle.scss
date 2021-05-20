@@ -31,39 +31,40 @@ body {
     @include displayGridCenter();
     grid-template-columns: repeat(3, 1fr);
     min-height: 80vh;
+    margin-top: 15vh;
 
-    .players {
+    #userAttackBtns {
         @include displayGridCenter();
-        row-gap: 5px;
-        height: 60%;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        row-gap: 2vh;
+        column-gap: 1vw;
 
-        img {
-            width: 20vw;
-        }
-        
-        #attackButton {
+        .attackBtns {
             @include buttonStyle($battleAccentColour);
-            margin-top: 5vh;
-            width: 100%;
-            padding: 2vh 0vh;
             box-shadow: 1px 1px 10px $battleDarkColour;
             cursor: pointer;
-
+    
             &:active {
                 box-shadow: none;
             }
         }
+    }
 
-        // #phantump {
-        //     transform: scaleX(-1);
-        //     width: 20vw;
-        // }
+    .players {
+        @include displayGridCenter();
+        row-gap: 10vh;
+
+        img {
+            width: 20vw;
+        }
 
         .healthBar {
             @include positionAndHeight(relative, 30px);
             display: grid;
             grid-template-columns: auto auto;
-            margin-top: 2vh;
+            // margin-top: 2vh;
+            width: 15vw;
             outline: 1px solid $battleAccentColour;
 
             .hpLabel, .healthPercentage {
@@ -83,20 +84,24 @@ body {
             }
         }
 
-        #userHealthBar {
-            width: 100%;
-        }
+        // #userHealthBar {
+        //     width: 100%;
+        // }
 
-        #computerHealthBar {
-            width: 77%;
-        }
+        // #computerHealthBar {
+        //     width: 100%;
+        // }
     }
 
     #computerPokemon {
-        row-gap: 30px;
 
         >p {
             @include textStyle(white);
+        }
+
+        #spacer {
+            width: 216px;
+            height: 100px;
         }
     }
 

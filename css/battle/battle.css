@@ -278,36 +278,50 @@ body {
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   min-height: 80vh;
+  margin-top: 15vh;
 }
 
-#arena .players {
+#arena #userAttackBtns {
   display: -ms-grid;
   display: grid;
   place-items: center;
-  row-gap: 5px;
-  height: 60%;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  row-gap: 2vh;
+  -webkit-column-gap: 1vw;
+          column-gap: 1vw;
 }
 
-#arena .players img {
-  width: 20vw;
-}
-
-#arena .players #attackButton {
+#arena #userAttackBtns .attackBtns {
   background: #7078B3;
   color: white;
+  font-weight: bold;
+  font-family: "Quicksand", sans-serif;
   text-transform: uppercase;
-  border-radius: 10px;
-  margin-top: 5vh;
-  width: 100%;
+  border: none;
+  border-radius: 20px;
+  width: 10vw;
   padding: 2vh 0vh;
   -webkit-box-shadow: 1px 1px 10px #222831;
           box-shadow: 1px 1px 10px #222831;
   cursor: pointer;
 }
 
-#arena .players #attackButton:active {
+#arena #userAttackBtns .attackBtns:active {
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+#arena .players {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  row-gap: 10vh;
+}
+
+#arena .players img {
+  width: 20vw;
 }
 
 #arena .players .healthBar {
@@ -317,7 +331,7 @@ body {
   display: grid;
   -ms-grid-columns: auto auto;
       grid-template-columns: auto auto;
-  margin-top: 2vh;
+  width: 15vw;
   outline: 1px solid #7078B3;
 }
 
@@ -340,21 +354,14 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-#arena .players #userHealthBar {
-  width: 100%;
-}
-
-#arena .players #computerHealthBar {
-  width: 77%;
-}
-
-#arena #computerPokemon {
-  row-gap: 30px;
-}
-
 #arena #computerPokemon > p {
   color: white;
   text-transform: uppercase;
+}
+
+#arena #computerPokemon #spacer {
+  width: 216px;
+  height: 100px;
 }
 
 #arena #battleMessages h1 {

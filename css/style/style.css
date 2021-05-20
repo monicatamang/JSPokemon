@@ -311,8 +311,13 @@ main .pokemon:hover {
 #resumeGame a {
   background: #bfc2bd;
   color: white;
+  font-weight: bold;
+  font-family: "Quicksand", sans-serif;
   text-transform: uppercase;
-  border-radius: 10px;
+  border: none;
+  border-radius: 20px;
+  width: 10vw;
+  padding: 2vh 0vh;
   text-decoration: none;
   padding: 1%;
 }

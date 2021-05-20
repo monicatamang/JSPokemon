@@ -40,8 +40,13 @@ $battleAccentColour: #7078B3;
 @mixin buttonStyle($backgroundColor) {
     background: $backgroundColor;
     color: white;
+    font-weight: bold;
+    font-family: $titleFont;
     text-transform: uppercase;
-    border-radius: 10px;
+    border: none;
+    border-radius: 20px;
+    width: 10vw;
+    padding: 2vh 0vh;
 }
 
 @mixin textStyle($textColor) {
