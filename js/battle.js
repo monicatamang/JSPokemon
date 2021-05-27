@@ -1,24 +1,20 @@
+// Getting the user's pokemon selection and health points
 let userPokemonSelection = Cookies.get(`userPokemonSelection`);
 let userMaxHealth = Cookies.get(`userMaxHealth`);
 let userCurrentHealth = Cookies.get(`userCurrentHealth`);
 
+// Getting the computer's pokemon player and health points
 let computerPokemonSelection = Cookies.get(`computerPokemonSelection`);
 let computerMaxHealth = Cookies.get(`computerMaxHealth`);
 let computerCurrentHealth = Cookies.get(`computerCurrentHealth`);
 
-let userCurrentHP = document.getElementById(`userHealthBarFill`);
-let computerCurrentHP = document.getElementById(`computerHealthBarFill`);
-
+// Printing the user's pokemon's name
 let userPokemonName = document.getElementById(`userPokemonName`);
 userPokemonName.append(userPokemonSelection);
-userPokemonName.style.color = `white`;
-userPokemonName.style.textTransform = `uppercase`;
-// userPokemonName.style.marginBottom = `5vh`;
 
+// Printing the computer's pokemon's name
 let computerPokemonName = document.getElementById(`computerPokemonName`);
 computerPokemonName.append(computerPokemonSelection);
-computerPokemonName.style.color = `white`;
-computerPokemonName.style.textTransform = `uppercase`;
 
 pokemonImage = document.createElement(`img`);
 pokemonImage.style.width = `100%`;
@@ -32,33 +28,8 @@ computerImage.style.transform = `scaleX(-1)`;
 document.getElementById(`computerPokemonImage`).append(computerImage);
 document.getElementById(`computerPokemonImage`).style.width = `15vw`;
 
-let computerPlayerOptions = [
-
-    {
-        name: `Phantump`,
-        image: `/images/blackPhantump.jpg`
-    },
-
-    {
-        name: `Pancham`,
-        image: `/images/blackPancham.jpg`
-    },
-
-    {
-        name: `Umbreon`,
-        image: `/images/blackUmbreon.jpg`
-    }
-]
-
-let randomNum = Math.floor(Math.random() * 3);
-
-for(let i = 0; i < computerPlayerOptions.length; i++) {
-    computerImage.setAttribute(`src`, computerPlayerOptions[randomNum].image);
-    Cookies.set(`computerPokemonSelection`, computerPlayerOptions[randomNum].name);
-    document.getElementById(`computerPokemonName`).innerText = computerPlayerOptions[randomNum].name;
-}
-
-computerPokemonSelection = Cookies.get(`computerPokemonSelection`);
+let userCurrentHP = document.getElementById(`userHealthBarFill`);
+let computerCurrentHP = document.getElementById(`computerHealthBarFill`);
 
 let userPlayerOptions = [
 
@@ -149,6 +120,7 @@ function computerHpPercentage() {
 }
 
 function computerPlayerTurn() {
+
     let computerDamage = Math.round((Math.random() * 100) + 50);
 
     if(userCurrentHealth > 0) {
@@ -164,46 +136,97 @@ function computerPlayerTurn() {
     }
 }
 
-function userPlayerTurn() {
-
-    let userDamage = Math.round((Math.random() * 100) + 50);
+function userPlayerTurn(userDamage) {
 
     if(computerCurrentHealth > 0) {
         computerCurrentHealth -= userDamage;
         Cookies.set(`computerCurrentHealth`, computerCurrentHealth);
         computerHpPercentage();
-        setTimeout(computerPlayerTurn, 1000);
     }
 
     if(computerCurrentHealth <= 0) {
         computerCurrentHealth = 0;
         Cookies.set(`computerCurrentHealth`, computerCurrentHealth);
         computerHpPercentage();
-        clearTimeout(computerPlayerTurn);
     }
 }
 
-function attackEnemy() {
-
+function userAttackOne() {
     if(gameOver === false) {
+        for(let i = 0; i < userPlayerOptions.length; i++) {
+            if (userPlayerOptions[i].name === userPokemonSelection) {
+                userPlayerTurn(userPlayerOptions[i].damageOne);
+                computerPlayerTurn();
+            }
+        }
+    }
+}
 
-        userPlayerTurn();
+function userAttackTwo() {
+    if(gameOver === false) {
+        for(let i = 0; i < userPlayerOptions.length; i++) {
+            if (userPlayerOptions[i].name === userPokemonSelection) {
+                userPlayerTurn(userPlayerOptions[i].damageTwo);
+                computerPlayerTurn();
+            }
+        }
+    }
+}
+
+function userAttackThree() {
+    if(gameOver === false) {
+        for(let i = 0; i < userPlayerOptions.length; i++) {
+            if (userPlayerOptions[i].name === userPokemonSelection) {
+                userPlayerTurn(userPlayerOptions[i].damageThree);
+                computerPlayerTurn();
+            }
+        }
+    }
+}
+
+function userAttackFour() {
+    if(gameOver === false) {
+        for(let i = 0; i < userPlayerOptions.length; i++) {
+            if (userPlayerOptions[i].name === userPokemonSelection) {
+                userPlayerTurn(userPlayerOptions[i].damageFour);
+                computerPlayerTurn();
+            }
+        }
     }
 }
 
 let userAttackBtnOne = document.getElementById("attackBtnOne");
-userAttackBtnOne.addEventListener("click", attackEnemy);
-
-// let userAttackButton = document.getElementById(`attackButton`);
-// userAttackButton.addEventListener(`click`, attackEnemy);
+let userAttackBtnTwo = document.getElementById("attackBtnTwo");
+let userAttackBtnThree = document.getElementById("attackBtnThree");
+let userAttackBtnFour = document.getElementById("attackBtnFour");
+userAttackBtnOne.addEventListener("click", userAttackOne);
+userAttackBtnTwo.addEventListener("click", userAttackTwo);
+userAttackBtnThree.addEventListener("click", userAttackThree);
+userAttackBtnFour.addEventListener("click", userAttackFour);
 
 if (userPokemonSelection === `Turtwig`) {
     pokemonImage.setAttribute(`src`, `/images/blackTurtwig.jpg`);
-    // userAttackButton.innerText = userPlayerOptions[0].attackOne;
 } else if (userPokemonSelection === `Charmander`) {
     pokemonImage.setAttribute(`src`, `/images/blackCharmander.jpg`);
 } else if (userPokemonSelection === `Piplup`) {
     pokemonImage.setAttribute(`src`, `/images/blackPiplup.jpg`);
+}
+
+if (computerPokemonSelection === "Phantump") {
+    computerImage.setAttribute(`src`, `/images/blackPhantump.jpg`);
+} else if (computerPokemonSelection === "Pancham") {
+    computerImage.setAttribute(`src`, `/images/blackPancham.jpg`);
+} else if (computerPokemonSelection === "Umbreon") {
+    computerImage.setAttribute(`src`, `/images/blackUmbreon.jpg`);
+}
+
+for(let i = 0; i < userPlayerOptions.length; i++) {
+    if(userPlayerOptions[i].name === userPokemonSelection) {
+        document.getElementById("attackBtnOne").innerText = userPlayerOptions[i].attackOne;
+        document.getElementById("attackBtnTwo").innerText = userPlayerOptions[i].attackTwo;
+        document.getElementById("attackBtnThree").innerText = userPlayerOptions[i].attackThree;
+        document.getElementById("attackBtnFour").innerText = userPlayerOptions[i].attackFour;
+    }
 }
 
 // Calling the functions to print the intiial user's HP and computer's HP to the DOM right when the user enters the battle page

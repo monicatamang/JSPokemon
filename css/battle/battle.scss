@@ -55,8 +55,13 @@ body {
         @include displayGridCenter();
         row-gap: 10vh;
 
-        img {
-            width: 20vw;
+        .pokemonName {
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .pokemonImage {
+            width: 15vw;
         }
 
         .healthBar {
